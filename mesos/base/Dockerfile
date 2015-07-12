@@ -85,4 +85,4 @@ RUN mkdir build && cd build && ../configure
 WORKDIR /opt/build/mesos/build
 
 # build and cleanup in a single layer
-RUN make -j2 install && cd / && rm -rf /opt
+RUN make -j2 install #&& cd / && rm -rf /opt
