@@ -71,7 +71,7 @@ WORKDIR /opt
 ####################################
 # PULL DOWN AND BUILD IT
 ####################################
-RUN git clone https://github.com/apache/mesos.git /opt/mesos
+RUN git clone https://github.com/AdamOssenford/mesos.git /opt/mesos
 RUN cd /opt/mesos
 # configure
 WORKDIR /opt/mesos
@@ -83,4 +83,4 @@ RUN mkdir build && cd build && ../configure
 WORKDIR /opt/mesos/build
 
 # build and cleanup in a single layer
-RUN make -j4 install && cd / && rm -rf /opt
+RUN make -j2 install && cd / && rm -rf /opt
