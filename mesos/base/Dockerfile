@@ -42,7 +42,9 @@ RUN apt-get install -yq build-essential \
 			python-dev \
 			python-boto \
 			libsvn-dev \
-			libapr1-dev 
+			libapr1-dev \
+			gettext-base \
+			gettext
 
 #############################################
 # HACK FOR gcc 4.8 DEPENDENCIES
@@ -71,16 +73,16 @@ WORKDIR /opt
 ####################################
 # PULL DOWN AND BUILD IT
 ####################################
-RUN git clone https://github.com/AdamOssenford/mesos.git /opt/mesos
-RUN cd /opt/mesos
+RUN git clone https://github.com/AdamOssenford/mesos.git /opt/build/mesos
+RUN cd /opt/build/mesos
 # configure
-WORKDIR /opt/mesos
+WORKDIR /opt/build/mesos
 RUN ./bootstrap
 
 # NOT SURE ABOUT THIS PART YET
 RUN mkdir build && cd build && ../configure
 
-WORKDIR /opt/mesos/build
+WORKDIR /opt/build/mesos/build
 
 # build and cleanup in a single layer
 RUN make -j2 install && cd / && rm -rf /opt
