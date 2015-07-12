@@ -36,7 +36,8 @@ RUN apt-get install -yq build-essential \
 			dh-autoreconf \
  			libcurl4-nss-dev \
  			libsasl2-dev \
-			openjdk-6-jdk \
+			openjdk-7-jdk \
+			openjdk-7-jre-lib \
 			maven \
 			python-dev \
 			python-boto \
