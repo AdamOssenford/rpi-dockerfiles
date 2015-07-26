@@ -61,19 +61,19 @@ RUN apt-get install -yq -t jessie gcc-4.8 g++-4.8
 
 # export environment
 ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-armhf
-ENV JAVA_LDFLAGS="-L/usr/lib/jvm/jdk-7-openjdk-armhf/jre/lib/arm/server \
- -R/usr/lib/jvm/jdk-7-openjdk-armhf/jre/lib/arm/server -Wl,-ljvm"
-ENV JAVA_CPPFLAGS="-I/usr/lib/jvm/jdk-7-openjdk-armhf/include \
- -I/usr/lib/jvm/jdk-7-openjdk-armhf/include/linux"
-ENV CFLAGS="-O2 -pipe -march=armv6j -mtune=arm1176jzf-s -mfpu=vfp \
- -mfloat-abi=hard"
-ENV CXXFLAGS="-O2 -pipe -march=armv6j -mtune=arm1176jzf-s -mfpu=vfp \
- -mfloat-abi=hard"
-# include libmesos on library path
-ENV LD_LIBRARY_PATH /usr/local/lib
+#ENV JAVA_LDFLAGS="-L/usr/lib/jvm/jdk-7-openjdk-armhf/jre/lib/arm/server \
+# -R/usr/lib/jvm/jdk-7-openjdk-armhf/jre/lib/arm/server -Wl,-ljvm"
+#ENV JAVA_CPPFLAGS="-I/usr/lib/jvm/jdk-7-openjdk-armhf/include \
+# -I/usr/lib/jvm/jdk-7-openjdk-armhf/include/linux"
+#ENV CFLAGS="-O2 -pipe -march=armv6j -mtune=arm1176jzf-s -mfpu=vfp \
+# -mfloat-abi=hard"
+#ENV CXXFLAGS="-O2 -pipe -march=armv6j -mtune=arm1176jzf-s -mfpu=vfp \
+# -mfloat-abi=hard"
+## include libmesos on library path
+#ENV LD_LIBRARY_PATH /usr/local/lib
 
 # copy local checkout into /opt
-ADD . /opt
+#ADD . /opt
 
 WORKDIR /opt
 
