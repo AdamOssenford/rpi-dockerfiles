@@ -61,13 +61,13 @@ RUN apt-get install -yq -t jessie gcc-4.8 g++-4.8
 
 # export environment
 ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-armhf
-export JAVA_LDFLAGS="-L/usr/lib/jvm/jdk-7-openjdk-armhf/jre/lib/arm/server \
+ENV JAVA_LDFLAGS="-L/usr/lib/jvm/jdk-7-openjdk-armhf/jre/lib/arm/server \
  -R/usr/lib/jvm/jdk-7-openjdk-armhf/jre/lib/arm/server -Wl,-ljvm"
-export JAVA_CPPFLAGS="-I/usr/lib/jvm/jdk-7-openjdk-armhf/include \
+ENV JAVA_CPPFLAGS="-I/usr/lib/jvm/jdk-7-openjdk-armhf/include \
  -I/usr/lib/jvm/jdk-7-openjdk-armhf/include/linux"
-export CFLAGS="-O2 -pipe -march=armv6j -mtune=arm1176jzf-s -mfpu=vfp \
+ENV CFLAGS="-O2 -pipe -march=armv6j -mtune=arm1176jzf-s -mfpu=vfp \
  -mfloat-abi=hard"
-export CXXFLAGS="-O2 -pipe -march=armv6j -mtune=arm1176jzf-s -mfpu=vfp \
+ENV CXXFLAGS="-O2 -pipe -march=armv6j -mtune=arm1176jzf-s -mfpu=vfp \
  -mfloat-abi=hard"
 # include libmesos on library path
 ENV LD_LIBRARY_PATH /usr/local/lib
